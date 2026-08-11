@@ -1,23 +1,13 @@
 <app-header />
 
 <main>
-  @if (cv.loading()) {
-    <div class="container loading-state">
-      <p>Cargando portfolio...</p>
-    </div>
-  } @else if (cv.error()) {
-    <div class="container loading-state">
-      <p>{{ cv.error() }}</p>
-    </div>
-  } @else {
-    <app-hero />
-    <app-about />
-    <app-experience />
-    <app-projects />
-    <app-skills />
-    <app-education />
-    <app-contact />
-  }
+  <app-hero />
+  <app-about />
+  <app-experience />
+  <app-projects />
+  <app-skills />
+  <app-education />
+  <app-contact />
 </main>
 
 <app-footer />

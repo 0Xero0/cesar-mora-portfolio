@@ -1,6 +1,6 @@
 <section id="hero" class="hero section">
   <div class="container hero__grid">
-    <div class="hero__content" appScrollReveal>
+    <div class="hero__content">
       <p class="hero__eyebrow">{{ cv.profile()?.location }}</p>
       <h1 class="hero__title">{{ cv.profile()?.name }}</h1>
       <p class="hero__headline">{{ cv.profile()?.headline }}</p>
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="hero__panel" appScrollReveal [delay]="120">
+    <div class="hero__panel">
       <div class="hero__stat">
         <span class="hero__stat-label">Especialidad</span>
         <strong>Angular & Full Stack</strong>

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeroComponent } from './sections/hero/hero.component';
@@ -8,7 +8,6 @@ import { SkillsComponent } from './sections/skills/skills.component';
 import { EducationComponent } from './sections/education/education.component';
 import { ContactComponent } from './sections/contact/contact.component';
 import { ProjectsComponent } from './sections/projects/projects.component';
-import { CvService } from './core/services/cv.service';
 
 @Component({
   selector: 'app-root',
@@ -27,10 +26,4 @@ import { CvService } from './core/services/cv.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
-  protected readonly cv = inject(CvService);
-
-  ngOnInit(): void {
-    this.cv.load();
-  }
-}
+export class AppComponent {}

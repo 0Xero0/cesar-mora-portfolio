@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, computed, inject, signal } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
+import cvData from '../../../assets/data/cv.json';
 import { CvProfile } from '../models/cv.model';
 
 const MONTHS = [
@@ -19,11 +19,7 @@ const MONTHS = [
 
 @Injectable({ providedIn: 'root' })
 export class CvService {
-  private readonly http = inject(HttpClient);
-
-  readonly profile = signal<CvProfile | null>(null);
-  readonly loading = signal(true);
-  readonly error = signal<string | null>(null);
+  readonly profile = signal<CvProfile>(cvData as CvProfile);
 
   readonly linkedInUrl = computed(() => {
     const linkedIn = this.profile()?.social_networks?.find(
@@ -33,7 +29,7 @@ export class CvService {
   });
 
   readonly firstName = computed(
-    () => this.profile()?.name?.split(' ')[0] ?? 'Portfolio',
+    () => this.profile()?.name?.split(' ')[0] ?? 'César',
   );
 
   readonly summary = computed(() => this.profile()?.sections?.summary?.[0] ?? '');
@@ -49,22 +45,6 @@ export class CvService {
   readonly skills = computed(() => this.profile()?.sections?.skills ?? []);
 
   readonly projects = computed(() => this.profile()?.sections?.projects ?? []);
-
-  load(): void {
-    this.loading.set(true);
-    this.error.set(null);
-
-    this.http.get<CvProfile>('assets/data/cv.json').subscribe({
-      next: (data) => {
-        this.profile.set(data);
-        this.loading.set(false);
-      },
-      error: () => {
-        this.error.set('No se pudo cargar la información del CV.');
-        this.loading.set(false);
-      },
-    });
-  }
 
   formatDate(value?: string | null): string {
     if (!value || value === 'present') {
