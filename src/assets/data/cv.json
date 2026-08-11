@@ -1,14 +1,18 @@
 {
   "name": "César Alfonso Mora Piedris",
-  "display_name": "César Mora",
   "location": "Montería, Colombia",
   "headline": "Ingeniero de Sistemas de Información | Desarrollador Full Stack | Líder Frontend (Angular)",
   "email": "calfonsomora@gmail.com",
   "phone": "+57 322 625 5957",
+  "website": "https://cesar-mora-portfolio-one.vercel.app",
   "social_networks": [
     {
       "network": "LinkedIn",
       "username": "cesar-alfonso-mora-piedris-a971381b7"
+    },
+    {
+      "network": "GitHub",
+      "username": "0Xero0"
     }
   ],
   "sections": {
@@ -163,5 +167,6 @@
         "details": "Levantamiento de requerimientos, pruebas unitarias, pruebas funcionales, documentación técnica, manuales de usuario, capacitaciones, refactorización y limpieza de código"
       }
     ]
-  }
+  },
+  "display_name": "César Mora"
 }

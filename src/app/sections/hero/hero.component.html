@@ -15,6 +15,11 @@
         <a class="btn btn--ghost" href="assets/cv/Cesar_Mora_CV.pdf" download>
           Descargar CV (PDF)
         </a>
+        @if (cv.githubUrl(); as url) {
+          <a class="btn btn--ghost" [href]="url" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        }
       </div>
     </div>
 

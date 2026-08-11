@@ -21,12 +21,38 @@ const MONTHS = [
 export class CvService {
   readonly profile = signal<CvProfile>(cvData as CvProfile);
 
-  readonly linkedInUrl = computed(() => {
-    const linkedIn = this.profile()?.social_networks?.find(
-      (item) => item.network.toLowerCase() === 'linkedin',
+  readonly linkedInUrl = computed(() => this.socialUrl('linkedin'));
+
+  readonly githubUrl = computed(() => this.socialUrl('github'));
+
+  readonly websiteUrl = computed(() => this.profile()?.website ?? null);
+
+  readonly githubUsername = computed(() => {
+    const github = this.profile()?.social_networks?.find(
+      (item) => item.network.toLowerCase() === 'github',
     );
-    return linkedIn ? `https://linkedin.com/in/${linkedIn.username}` : null;
+    return github ? `@${github.username}` : '';
   });
+
+  private socialUrl(network: string): string | null {
+    const profile = this.profile()?.social_networks?.find(
+      (item) => item.network.toLowerCase() === network,
+    );
+
+    if (!profile) {
+      return null;
+    }
+
+    if (network === 'linkedin') {
+      return `https://linkedin.com/in/${profile.username}`;
+    }
+
+    if (network === 'github') {
+      return `https://github.com/${profile.username}`;
+    }
+
+    return null;
+  }
 
   readonly displayName = computed(
     () => this.profile()?.display_name ?? this.profile()?.name ?? 'César Mora',

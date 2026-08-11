@@ -18,6 +18,12 @@
   text-decoration: none;
 }
 
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .footer a:hover {
   text-decoration: underline;
 }

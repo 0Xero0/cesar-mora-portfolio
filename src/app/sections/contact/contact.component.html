@@ -29,6 +29,20 @@
         </div>
       }
 
+      @if (cv.githubUrl(); as url) {
+        <div class="contact__card">
+          <span>GitHub</span>
+          <a [href]="url" target="_blank" rel="noopener noreferrer">{{ cv.githubUsername() }}</a>
+        </div>
+      }
+
+      @if (cv.websiteUrl(); as url) {
+        <div class="contact__card">
+          <span>Portfolio</span>
+          <a [href]="url" target="_blank" rel="noopener noreferrer">cesar-mora-portfolio-one.vercel.app</a>
+        </div>
+      }
+
       <div class="contact__card contact__card--wide">
         <span>CV en PDF</span>
         <a href="assets/cv/Cesar_Mora_CV.pdf" download>Descargar hoja de vida</a>

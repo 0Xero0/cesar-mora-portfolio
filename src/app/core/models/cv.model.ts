@@ -60,6 +60,7 @@ export interface CvProfile {
   headline?: string;
   email?: string;
   phone?: string;
+  website?: string;
   social_networks?: SocialNetwork[];
   sections: CvSections;
 }

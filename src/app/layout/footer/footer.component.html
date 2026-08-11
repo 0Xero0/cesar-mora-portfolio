@@ -1,8 +1,16 @@
 <footer class="footer">
   <div class="container footer__inner">
     <p>© {{ year }} {{ cv.displayName() }}. Desarrollado con Angular.</p>
-    @if (cv.linkedInUrl(); as url) {
-      <a [href]="url" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    }
+    <div class="footer__links">
+      @if (cv.websiteUrl(); as url) {
+        <a [href]="url" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      }
+      @if (cv.githubUrl(); as url) {
+        <a [href]="url" target="_blank" rel="noopener noreferrer">GitHub</a>
+      }
+      @if (cv.linkedInUrl(); as url) {
+        <a [href]="url" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      }
+    </div>
   </div>
 </footer>
