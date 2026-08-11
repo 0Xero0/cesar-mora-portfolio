@@ -1,7 +1,12 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/cesar-mora-portfolio/browser",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/((?!.*\\.).*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.(js|css|woff2|ico|pdf)",
