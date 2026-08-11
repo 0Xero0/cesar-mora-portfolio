@@ -1,0 +1,31 @@
+<article class="timeline-item">
+  <div class="timeline-item__marker" aria-hidden="true"></div>
+
+  <div class="timeline-item__card">
+    <button
+      type="button"
+      class="timeline-item__header"
+      (click)="toggle()"
+      [attr.aria-expanded]="expanded()"
+    >
+      <div>
+        <h3 class="timeline-item__position">{{ item().position }}</h3>
+        <p class="timeline-item__company">{{ item().company }}</p>
+      </div>
+      <div class="timeline-item__meta">
+        <span>{{ cv.formatDateRange(item().start_date, item().end_date) }}</span>
+        @if (item().location) {
+          <span>{{ item().location }}</span>
+        }
+      </div>
+    </button>
+
+    @if (expanded()) {
+      <ul class="timeline-item__highlights">
+        @for (highlight of item().highlights ?? []; track highlight) {
+          <li>{{ highlight }}</li>
+        }
+      </ul>
+    }
+  </div>
+</article>

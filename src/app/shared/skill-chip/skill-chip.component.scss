@@ -1,0 +1,17 @@
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill-chip:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}

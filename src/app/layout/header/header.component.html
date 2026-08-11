@@ -1,0 +1,33 @@
+<header class="header">
+  <div class="container header__inner">
+    <button type="button" class="header__brand" (click)="scrollTo('hero')">
+      {{ cv.firstName() }}
+    </button>
+
+    <button
+      type="button"
+      class="header__toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="primary-nav"
+      aria-label="Abrir menú de navegación"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="primary-nav" class="header__nav" [class.is-open]="menuOpen()">
+      @for (item of navItems; track item.id) {
+        <button
+          type="button"
+          class="header__link"
+          [class.is-active]="activeSection() === item.id"
+          (click)="scrollTo(item.id)"
+        >
+          {{ item.label }}
+        </button>
+      }
+    </nav>
+  </div>
+</header>

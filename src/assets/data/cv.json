@@ -1,0 +1,166 @@
+{
+  "name": "César Alfonso Mora Piedris",
+  "location": "Montería, Colombia",
+  "headline": "Ingeniero de Sistemas de Información | Desarrollador Full Stack | Líder Frontend (Angular)",
+  "email": "calfonsomora@gmail.com",
+  "phone": "+57 322 625 5957",
+  "social_networks": [
+    {
+      "network": "LinkedIn",
+      "username": "cesar-alfonso-mora-piedris-a971381b7"
+    }
+  ],
+  "sections": {
+    "summary": [
+      "Ingeniero de Sistemas de Información con experiencia liderando equipos frontend y desarrollando soluciones full stack para sector público y privado. Especializado en Angular, TypeScript, NestJS, Laravel y PostgreSQL. Experiencia en plataformas institucionales de alto impacto (SINST, MESS, Universo de Vigilados) y proyectos empresariales para clientes como Corona, Pluxee y Logicomex. Dominio del ciclo completo de desarrollo: requerimientos, implementación, CI/CD, documentación, pruebas y despliegue."
+    ],
+    "experience": [
+      {
+        "company": "ABI Software y Plataformas S.A.S",
+        "position": "Desarrollador de Software Full Stack",
+        "location": "Colombia",
+        "start_date": "2025-01",
+        "end_date": "present",
+        "highlights": [
+          "Lideré el desarrollo completo (frontend y/o full stack) de soluciones para clientes como Induaseo, QE Metering, Corona, Favorita Media Live, Logicomex, Logman ZF, Pluxee y Adatec.",
+          "Desarrollé frontend con Angular y TypeScript; backend con NestJS y Laravel; bases de datos PostgreSQL en proyectos full stack.",
+          "Ejecuté el ciclo completo de desarrollo: levantamiento de requerimientos, diseño e implementación bajo lineamientos de arquitectura, pruebas unitarias e implementación en producción.",
+          "Gestioné repositorios en Azure DevOps y GitHub; implementé pipelines CI/CD y control de versiones con Git.",
+          "Administré infraestructura híbrida (on-premise y multicloud); elaboré documentación técnica, manuales de usuario y atención de incidentes en producción."
+        ]
+      },
+      {
+        "company": "Superintendencia de Transporte",
+        "position": "Ingeniero de Sistemas – Líder Frontend",
+        "location": "Colombia",
+        "start_date": "2024-08",
+        "end_date": "2024-12",
+        "highlights": [
+          "Lideré al equipo frontend del equipo de desarrollo W, responsable de plataformas en producción: SINST y módulos PESV, PECCIT, Pólizas y SICOV; plataforma MESS.",
+          "Desarrollé nuevas funcionalidades en Angular para el Universo de Vigilados, incluyendo el módulo de Certificaciones y mejoras en revisión de documentos de Operadores Portuarios Marítimos (OPM) y Fluviales (OPF).",
+          "Diseñé interfaces, reestructuré código, ejecuté limpieza técnica y controles de versionamiento con Azure DevOps y GitHub.",
+          "Redacté documentación técnica, ejecuté pruebas funcionales, elaboré manuales de usuario y capacité a funcionarios y supervisores en el uso de los aplicativos."
+        ]
+      },
+      {
+        "company": "Desarrollo independiente (Freelance)",
+        "position": "Desarrollador Web Freelance",
+        "location": "Colombia",
+        "start_date": "2023-03",
+        "end_date": "2024-07",
+        "highlights": [
+          "Presté servicios de desarrollo web de forma independiente mientras buscaba oportunidades laborales y contratos formales.",
+          "Desarrollé soluciones frontend y full stack bajo demanda con Angular, TypeScript, Laravel y NestJS.",
+          "Gestioné requerimientos, implementación, pruebas y entrega directamente con clientes."
+        ]
+      },
+      {
+        "company": "Alcaldía de Valencia – Punto de Atención a Víctimas",
+        "position": "Técnico de Sistemas",
+        "location": "Montería, Colombia",
+        "start_date": "2020-01",
+        "end_date": "2020-12",
+        "highlights": [
+          "Mantuve y reparé equipos de cómputo (hardware y software) del área institucional.",
+          "Actualicé sistemas operativos y software institucional; implementé nuevas herramientas de soporte.",
+          "Capacité al personal en el uso de sistemas de información."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Universidad del Sinú – Elías Bechara Zainum",
+        "area": "Sistemas de Información",
+        "degree": "Ingeniero de Sistemas de Información",
+        "start_date": "2016-01",
+        "end_date": "2023-02",
+        "location": "Montería, Colombia",
+        "highlights": [
+          "Dedicación exclusiva a estudios entre 2021 y 2023."
+        ]
+      },
+      {
+        "institution": "CEPRODENT – Centro de Estudios Técnicos",
+        "area": "Redes y Programación",
+        "degree": "Diplomado",
+        "end_date": "2015-12",
+        "location": "Colombia"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "De Cero a Experto en Angular",
+        "summary": "Udemy – Global Mentoring / Ing. Ubaldo Acosta",
+        "date": "2024-05"
+      }
+    ],
+    "projects": [
+      {
+        "name": "Favorita Media Live – AdTech y arquitectura de software",
+        "company": "ABI Software y Plataformas S.A.S · Favorita Media Live",
+        "date": "2025-01",
+        "url": "https://www.linkedin.com/posts/abi-ai_adtech-digitaltransformation-softwarearchitecture-activity-7422327564288823297-4ZJY",
+        "summary": "Participación en el desarrollo de solución AdTech con enfoque en transformación digital y arquitectura de software para medios digitales.",
+        "highlights": [
+          "Angular",
+          "AdTech",
+          "Arquitectura de software"
+        ]
+      },
+      {
+        "name": "Induaseo – Transformación digital",
+        "company": "ABI Software y Plataformas S.A.S · Induaseo",
+        "date": "2025-01",
+        "url": "https://www.linkedin.com/posts/abi-ai_transformaciaejndigital-softwaredevelopment-activity-7404870457784418305-y3ln",
+        "summary": "Desarrollo de software como parte de la transformación digital del cliente, bajo lineamientos de arquitectura y buenas prácticas de ingeniería.",
+        "highlights": [
+          "Angular",
+          "Desarrollo full stack",
+          "Transformación digital"
+        ]
+      },
+      {
+        "name": "QE Metering – Facturación IoT",
+        "company": "ABI Software y Plataformas S.A.S · QE Metering",
+        "date": "2024-10",
+        "url": "https://www.linkedin.com/posts/sergio-gaona-co_construir-una-soluci%C3%B3n-de-facturaci%C3%B3n-iot-ugcPost-7387130024862318592-TVHT",
+        "summary": "Construcción de solución de facturación IoT, integrando frontend, backend y flujos de datos para medición y facturación inteligente.",
+        "highlights": [
+          "IoT",
+          "Facturación",
+          "NestJS",
+          "PostgreSQL"
+        ]
+      },
+      {
+        "name": "SINST, MESS y Universo de Vigilados",
+        "company": "Superintendencia de Transporte",
+        "date": "2024-11",
+        "summary": "Liderazgo frontend del equipo W en plataformas institucionales en producción, incluyendo módulos PESV, PECCIT, Pólizas, SICOV y el módulo de Certificaciones para OPM/OPF.",
+        "highlights": [
+          "Angular",
+          "TypeScript",
+          "Azure DevOps"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "label": "Frontend",
+        "details": "Angular, TypeScript, JavaScript, HTML5, CSS3, diseño de interfaces, liderazgo de equipos frontend"
+      },
+      {
+        "label": "Backend y datos",
+        "details": "NestJS, Laravel, Node.js, Express, APIs REST, PostgreSQL"
+      },
+      {
+        "label": "DevOps, repos e infraestructura",
+        "details": "Git, GitHub, Azure DevOps, CI/CD, control de versiones, infraestructura híbrida (on-premise y multicloud), despliegue en producción"
+      },
+      {
+        "label": "Ingeniería de software",
+        "details": "Levantamiento de requerimientos, pruebas unitarias, pruebas funcionales, documentación técnica, manuales de usuario, capacitaciones, refactorización y limpieza de código"
+      }
+    ]
+  }
+}

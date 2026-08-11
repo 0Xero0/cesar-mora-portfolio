@@ -1,0 +1,22 @@
+<section id="skills" class="section">
+  <div class="container">
+    <app-section-title
+      eyebrow="Stack"
+      heading="Habilidades técnicas"
+      subtitle="Tecnologías y prácticas con las que trabajo en frontend, backend, DevOps e ingeniería."
+    />
+
+    <div class="skills__grid">
+      @for (group of cv.skills(); track group.label) {
+        <article class="skills__group" appScrollReveal>
+          <h3>{{ group.label }}</h3>
+          <div class="skills__chips">
+            @for (skill of cv.splitSkills(group.details); track skill) {
+              <app-skill-chip [label]="skill" />
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+@if (cv.projects().length) {
+  <section id="projects" class="section">
+    <div class="container">
+      <app-section-title
+        eyebrow="Proyectos"
+        heading="Publicaciones y proyectos"
+        subtitle="Experiencias destacadas compartidas en LinkedIn y proyectos en los que he participado."
+      />
+
+      <div class="projects__grid">
+        @for (project of cv.projects(); track project.name + (project.date ?? '')) {
+          <article class="projects__card" appScrollReveal>
+            <div class="projects__header">
+              <div>
+                <h3>{{ project.name }}</h3>
+                @if (project.company) {
+                  <p class="projects__company">{{ project.company }}</p>
+                }
+              </div>
+              @if (project.date) {
+                <time class="projects__date">{{ cv.formatDate(project.date) }}</time>
+              }
+            </div>
+
+            @if (project.summary) {
+              <p class="projects__summary">{{ project.summary }}</p>
+            }
+
+            @if (project.highlights?.length) {
+              <div class="projects__chips">
+                @for (tag of project.highlights ?? []; track tag) {
+                  <app-skill-chip [label]="tag" />
+                }
+              </div>
+            }
+
+            @if (project.url) {
+              <a
+                class="projects__link"
+                [href]="project.url"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver publicación en LinkedIn →
+              </a>
+            }
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+}

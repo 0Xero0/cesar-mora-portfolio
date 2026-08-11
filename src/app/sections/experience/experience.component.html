@@ -1,0 +1,15 @@
+<section id="experience" class="section">
+  <div class="container">
+    <app-section-title
+      eyebrow="Trayectoria"
+      heading="Experiencia laboral"
+      subtitle="Roles en sector público, freelance y desarrollo full stack para empresas privadas."
+    />
+
+    <div class="experience__timeline" appScrollReveal>
+      @for (item of cv.experience(); track item.company + item.start_date) {
+        <app-timeline-item [item]="item" />
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.projects__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  height: 100%;
+}
+
+.projects__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.projects__header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.projects__company {
+  margin: 0.35rem 0 0;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.projects__date {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.projects__summary {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.projects__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.projects__link {
+  margin-top: auto;
+  color: var(--color-accent);
+  font-size: 0.925rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.projects__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__header {
+    flex-direction: column;
+  }
+}
