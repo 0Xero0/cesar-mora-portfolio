@@ -35,7 +35,17 @@ function normalizeCv(cv) {
 }
 
 if (!existsSync(yamlPath)) {
+  if (existsSync(jsonOutPath)) {
+    console.warn(
+      `CV YAML not found at: ${yamlPath}. Using committed ${jsonOutPath}.`,
+    );
+    process.exit(0);
+  }
+
   console.error(`CV YAML not found at: ${yamlPath}`);
+  console.error(
+    'Run sync-cv locally after updating the YAML, or set CV_YAML_PATH.',
+  );
   process.exit(1);
 }
 
