@@ -31,6 +31,8 @@ function normalizeCv(cv) {
     }));
   }
 
+  normalized.display_name ??= 'César Mora';
+
   return normalized;
 }
 

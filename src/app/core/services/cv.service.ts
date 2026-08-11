@@ -28,8 +28,12 @@ export class CvService {
     return linkedIn ? `https://linkedin.com/in/${linkedIn.username}` : null;
   });
 
+  readonly displayName = computed(
+    () => this.profile()?.display_name ?? this.profile()?.name ?? 'César Mora',
+  );
+
   readonly firstName = computed(
-    () => this.profile()?.name?.split(' ')[0] ?? 'César',
+    () => this.displayName().split(' ')[0] ?? 'César',
   );
 
   readonly summary = computed(() => this.profile()?.sections?.summary?.[0] ?? '');

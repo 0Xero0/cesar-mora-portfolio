@@ -55,6 +55,7 @@ export interface CvSections {
 
 export interface CvProfile {
   name: string;
+  display_name?: string;
   location?: string;
   headline?: string;
   email?: string;
