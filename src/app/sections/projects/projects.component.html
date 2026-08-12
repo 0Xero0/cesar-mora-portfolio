@@ -5,11 +5,12 @@
         eyebrow="Proyectos"
         heading="Publicaciones y proyectos"
         subtitle="Experiencias destacadas compartidas en LinkedIn y proyectos en los que he participado."
+        appScrollReveal
       />
 
       <div class="projects__grid">
-        @for (project of cv.projects(); track project.name + (project.date ?? '')) {
-          <article class="projects__card" appScrollReveal>
+        @for (project of cv.projects(); track project.name + (project.date ?? ''); let i = $index) {
+          <article class="projects__card card-glow" appScrollReveal [delay]="i * 100" appTilt>
             <div class="projects__header">
               <div>
                 <h3>{{ project.name }}</h3>

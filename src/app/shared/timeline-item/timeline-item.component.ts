@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, effect, input, signal } from '@angular/core';
 import { Experience } from '../../core/models/cv.model';
 import { CvService } from '../../core/services/cv.service';
 
@@ -11,9 +11,16 @@ import { CvService } from '../../core/services/cv.service';
 })
 export class TimelineItemComponent {
   readonly item = input.required<Experience>();
-  readonly expanded = signal(true);
 
-  constructor(protected readonly cv: CvService) {}
+  readonly defaultOpen = input(false);
+
+  readonly expanded = signal(false);
+
+  constructor(protected readonly cv: CvService) {
+    effect(() => {
+      this.expanded.set(this.defaultOpen());
+    });
+  }
 
   toggle(): void {
     this.expanded.update((value) => !value);

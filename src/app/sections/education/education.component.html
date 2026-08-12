@@ -4,13 +4,14 @@
       eyebrow="Formación"
       heading="Educación y certificaciones"
       subtitle="Base académica en ingeniería de sistemas y formación continua en desarrollo web."
+      appScrollReveal
     />
 
     <div class="education__grid">
-      <div class="education__column" appScrollReveal>
+      <div class="education__column" appScrollReveal [delay]="100">
         <h3>Educación</h3>
-        @for (item of cv.education(); track item.institution + item.degree) {
-          <article class="education__card">
+        @for (item of cv.education(); track item.institution + item.degree; let i = $index) {
+          <article class="education__card card-glow" appScrollReveal [delay]="i * 80">
             <h4>{{ item.degree }} en {{ item.area }}</h4>
             <p class="education__institution">{{ item.institution }}</p>
             <p class="education__meta">
@@ -30,10 +31,10 @@
         }
       </div>
 
-      <div class="education__column" appScrollReveal [delay]="100">
+      <div class="education__column" appScrollReveal [delay]="200">
         <h3>Certificaciones</h3>
-        @for (cert of cv.certifications(); track cert.name) {
-          <article class="education__card">
+        @for (cert of cv.certifications(); track cert.name; let i = $index) {
+          <article class="education__card card-glow" appScrollReveal [delay]="i * 80">
             <h4>{{ cert.name }}</h4>
             @if (cert.summary) {
               <p class="education__institution">{{ cert.summary }}</p>

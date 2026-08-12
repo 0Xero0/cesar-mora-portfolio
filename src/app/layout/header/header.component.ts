@@ -1,5 +1,6 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { Component, HostListener, effect, inject, signal } from '@angular/core';
 import { CvService } from '../../core/services/cv.service';
+import { ThemeService } from '../../core/services/theme.service';
 
 const NAV_ITEMS = [
   { id: 'about', label: 'Resumen' },
@@ -18,12 +19,27 @@ const NAV_ITEMS = [
 })
 export class HeaderComponent {
   protected readonly cv = inject(CvService);
+
+  protected readonly theme = inject(ThemeService);
+
   protected readonly navItems = NAV_ITEMS;
+
   protected readonly menuOpen = signal(false);
+
   protected readonly activeSection = signal('hero');
+
+  protected readonly isScrolled = signal(false);
+
+  constructor() {
+    effect(() => {
+      document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
+    });
+  }
 
   @HostListener('window:scroll')
   onScroll(): void {
+    this.isScrolled.set(window.scrollY > 12);
+
     const sections = ['hero', ...NAV_ITEMS.map((item) => item.id)];
     const scrollY = window.scrollY + 120;
 

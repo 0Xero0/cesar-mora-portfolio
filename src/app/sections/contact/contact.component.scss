@@ -14,22 +14,68 @@
   background: var(--color-surface);
 }
 
-.contact__card span {
+.contact__label {
   color: var(--color-text-muted);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.contact__card a,
-.contact__card strong {
+.contact__value {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.contact__value a,
+.contact__value strong {
   color: var(--color-text);
   font-size: 1rem;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
-.contact__card a:hover {
+.contact__value a:hover {
   color: var(--color-accent);
+}
+
+.contact__icon {
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-accent);
+}
+
+.contact__copy {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact__copy:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.08);
+}
+
+.contact__copy svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.contact__copy .contact__copy-check {
+  color: var(--color-success);
 }
 
 .contact__card--wide {

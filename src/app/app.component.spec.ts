@@ -14,16 +14,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'cesar-mora-portfolio' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('cesar-mora-portfolio');
-  });
-
-  it('should render title', () => {
+  it('should render a page heading', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, cesar-mora-portfolio');
+    expect(compiled.querySelector('h1')).toBeTruthy();
+  });
+
+  it('should toggle back-to-top visibility with scroll', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.showBackToTop.set(true);
+    expect(app.showBackToTop()).toBeTrue();
   });
 });

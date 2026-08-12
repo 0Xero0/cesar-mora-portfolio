@@ -4,15 +4,16 @@
       eyebrow="Stack"
       heading="Habilidades técnicas"
       subtitle="Tecnologías y prácticas con las que trabajo en frontend, backend, DevOps e ingeniería."
+      appScrollReveal
     />
 
     <div class="skills__grid">
-      @for (group of cv.skills(); track group.label) {
-        <article class="skills__group" appScrollReveal>
+      @for (group of cv.skills(); track group.label; let i = $index) {
+        <article class="skills__group card-glow" appScrollReveal [delay]="i * 100">
           <h3>{{ group.label }}</h3>
           <div class="skills__chips">
-            @for (skill of cv.splitSkills(group.details); track skill) {
-              <app-skill-chip [label]="skill" />
+            @for (skill of cv.splitSkills(group.details); track skill; let j = $index) {
+              <app-skill-chip [label]="skill" appScrollReveal [delay]="j * 45" />
             }
           </div>
         </article>

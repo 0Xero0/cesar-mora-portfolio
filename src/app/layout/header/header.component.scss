@@ -3,14 +3,20 @@
   top: 0;
   z-index: 20;
   backdrop-filter: blur(16px);
-  background: rgba(15, 20, 25, 0.82);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.is-scrolled {
+  box-shadow: var(--header-shadow);
 }
 
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   min-height: 4.5rem;
 }
 
@@ -21,12 +27,110 @@
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.header__brand:hover {
+  color: var(--color-accent);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.header__link {
+  position: relative;
+  padding: 0.55rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.925rem;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.4rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header__link:hover,
+.header__link.is-active {
+  color: var(--color-text);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.header__link:hover::after,
+.header__link.is-active::after {
+  transform: scaleX(1);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.header__theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.header__theme:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: rotate(12deg);
+}
+
+.header__theme svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.header__theme .header__theme-sun {
+  display: block;
+}
+
+.header__theme .header__theme-moon {
+  display: none;
+}
+
+.header__theme.is-light .header__theme-sun {
+  display: none;
+}
+
+.header__theme.is-light .header__theme-moon {
+  display: block;
 }
 
 .header__toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 0.3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0.5rem;
   border: 0;
   background: transparent;
@@ -38,29 +142,19 @@
   width: 1.4rem;
   height: 2px;
   background: var(--color-text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.header__nav {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
+.header__toggle.is-open span:nth-child(1) {
+  transform: translateY(0.4rem) rotate(45deg);
 }
 
-.header__link {
-  padding: 0.55rem 0.85rem;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--color-text-muted);
-  font-size: 0.925rem;
-  cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
+.header__toggle.is-open span:nth-child(2) {
+  opacity: 0;
 }
 
-.header__link:hover,
-.header__link.is-active {
-  color: var(--color-text);
-  background: rgba(56, 189, 248, 0.12);
+.header__toggle.is-open span:nth-child(3) {
+  transform: translateY(-0.4rem) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
@@ -73,15 +167,22 @@
     top: 100%;
     left: 0;
     right: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
+    gap: 0.35rem;
     padding: 1rem;
-    background: rgba(15, 20, 25, 0.96);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--header-border);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   }
 
   .header__nav.is-open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .header__link {

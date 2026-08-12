@@ -59,10 +59,11 @@
   font-size: 0.925rem;
   font-weight: 600;
   text-decoration: none;
+  transition: letter-spacing 0.25s ease;
 }
 
 .projects__link:hover {
-  text-decoration: underline;
+  letter-spacing: 0.03em;
 }
 
 @media (max-width: 768px) {

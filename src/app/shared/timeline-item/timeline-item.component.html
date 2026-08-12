@@ -12,20 +12,34 @@
         <h3 class="timeline-item__position">{{ item().position }}</h3>
         <p class="timeline-item__company">{{ item().company }}</p>
       </div>
+
       <div class="timeline-item__meta">
         <span>{{ cv.formatDateRange(item().start_date, item().end_date) }}</span>
         @if (item().location) {
           <span>{{ item().location }}</span>
         }
       </div>
+
+      <svg class="timeline-item__chevron" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M6 9l6 6 6-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </button>
 
-    @if (expanded()) {
-      <ul class="timeline-item__highlights">
-        @for (highlight of item().highlights ?? []; track highlight) {
-          <li>{{ highlight }}</li>
-        }
-      </ul>
-    }
+    <div class="timeline-item__body" [class.is-expanded]="expanded()">
+      <div class="timeline-item__inner">
+        <ul class="timeline-item__highlights">
+          @for (highlight of item().highlights ?? []; track highlight) {
+            <li>{{ highlight }}</li>
+          }
+        </ul>
+      </div>
+    </div>
   </div>
 </article>

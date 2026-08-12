@@ -4,11 +4,17 @@
       eyebrow="Trayectoria"
       heading="Experiencia laboral"
       subtitle="Roles en sector público, freelance y desarrollo full stack para empresas privadas."
+      appScrollReveal
     />
 
-    <div class="experience__timeline" appScrollReveal>
-      @for (item of cv.experience(); track item.company + item.start_date) {
-        <app-timeline-item [item]="item" />
+    <div class="experience__timeline">
+      @for (item of cv.experience(); track item.company + item.start_date; let i = $index) {
+        <app-timeline-item
+          [item]="item"
+          [defaultOpen]="i === 0"
+          [delay]="i * 120"
+          appScrollReveal
+        />
       }
     </div>
   </div>

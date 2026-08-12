@@ -1,6 +1,18 @@
+<a href="#main" class="skip-link">Saltar al contenido</a>
+
+<div class="aurora" aria-hidden="true">
+  <span class="aurora__blob aurora__blob--1"></span>
+  <span class="aurora__blob aurora__blob--2"></span>
+  <span class="aurora__blob aurora__blob--3"></span>
+</div>
+
+<div #cursorGlow class="cursor-glow" aria-hidden="true"></div>
+
+<div class="scroll-progress" [style.width.%]="scrollProgress()" aria-hidden="true"></div>
+
 <app-header />
 
-<main>
+<main id="main">
   <app-hero />
   <app-about />
   <app-experience />
@@ -11,3 +23,26 @@
 </main>
 
 <app-footer />
+
+<button
+  type="button"
+  class="back-to-top"
+  [class.is-visible]="showBackToTop()"
+  (click)="backToTop()"
+  aria-label="Volver arriba"
+>
+  <svg class="back-to-top__ring" width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+    <circle cx="23" cy="23" r="20" class="back-to-top__ring-track" />
+    <circle
+      cx="23"
+      cy="23"
+      r="20"
+      class="back-to-top__ring-progress"
+      [attr.stroke-dasharray]="RING_CIRCUMFERENCE"
+      [attr.stroke-dashoffset]="ringOffset()"
+    />
+  </svg>
+  <svg class="back-to-top__arrow" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</button>
