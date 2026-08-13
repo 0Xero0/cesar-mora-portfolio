@@ -59,7 +59,7 @@ export class AppComponent {
     }
     const glow = this.cursorGlow()?.nativeElement;
     if (glow) {
-      glow.style.translate = `${event.clientX}px ${event.clientY}px`;
+      glow.style.translate = `calc(${event.clientX}px - 50%) calc(${event.clientY}px - 50%)`;
     }
   }
 
