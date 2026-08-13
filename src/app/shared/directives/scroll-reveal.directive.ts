@@ -25,12 +25,9 @@ export class ScrollRevealDirective implements OnInit {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('is-visible');
-          observer.disconnect();
-        }
+        el.classList.toggle('is-visible', entry.isIntersecting);
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.12, rootMargin: '-48px 0px -40px 0px' },
     );
 
     observer.observe(el);
