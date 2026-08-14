@@ -1,4 +1,5 @@
-import { Component, HostListener, effect, inject, signal } from '@angular/core';
+import { Component, HostListener, PLATFORM_ID, effect, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CvService } from '../../core/services/cv.service';
 import { ThemeService } from '../../core/services/theme.service';
 
@@ -30,9 +31,13 @@ export class HeaderComponent {
 
   protected readonly isScrolled = signal(false);
 
+  private readonly platformId = inject(PLATFORM_ID);
+
   constructor() {
     effect(() => {
-      document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
+      if (isPlatformBrowser(this.platformId)) {
+        document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
+      }
     });
   }
 

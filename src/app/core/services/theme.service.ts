@@ -1,4 +1,5 @@
-import { Injectable, computed, effect, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, computed, effect, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 type Theme = 'dark' | 'light';
 
@@ -6,6 +7,8 @@ const STORAGE_KEY = 'portfolio-theme';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private readonly platformId = inject(PLATFORM_ID);
+
   private readonly themeSignal = signal<Theme>('dark');
 
   readonly theme = this.themeSignal.asReadonly();
@@ -15,19 +18,21 @@ export class ThemeService {
   constructor() {
     this.themeSignal.set(this.getInitialTheme());
 
-    effect(() => {
-      const theme = this.themeSignal();
-      document.documentElement.dataset['theme'] = theme;
-      document.querySelector('meta[name="theme-color"]')?.setAttribute(
-        'content',
-        theme === 'light' ? '#f5f8fd' : '#0f1419',
-      );
-      try {
-        localStorage.setItem(STORAGE_KEY, theme);
-      } catch {
-        // Ignorar almacenamiento no disponible (modo privado).
-      }
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      effect(() => {
+        const theme = this.themeSignal();
+        document.documentElement.dataset['theme'] = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute(
+          'content',
+          theme === 'light' ? '#f5f8fd' : '#0f1419',
+        );
+        try {
+          localStorage.setItem(STORAGE_KEY, theme);
+        } catch {
+          // Ignorar almacenamiento no disponible (modo privado).
+        }
+      });
+    }
   }
 
   toggle(): void {
@@ -35,6 +40,10 @@ export class ThemeService {
   }
 
   private getInitialTheme(): Theme {
+    if (!isPlatformBrowser(this.platformId)) {
+      return 'dark';
+    }
+
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored === 'light' || stored === 'dark') {

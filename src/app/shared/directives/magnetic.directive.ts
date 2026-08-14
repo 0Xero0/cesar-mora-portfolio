@@ -1,4 +1,5 @@
-import { Directive, ElementRef, HostListener, inject } from '@angular/core';
+import { Directive, ElementRef, HostListener, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appMagnetic]',
@@ -7,7 +8,10 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 export class MagneticDirective {
   private readonly element = inject(ElementRef<HTMLElement>);
 
+  private readonly platformId = inject(PLATFORM_ID);
+
   private enabled =
+    isPlatformBrowser(this.platformId) &&
     window.matchMedia('(pointer: fine)').matches &&
     !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -1,4 +1,5 @@
-import { Component, ElementRef, HostListener, computed, signal, viewChild } from '@angular/core';
+import { PLATFORM_ID, Component, ElementRef, HostListener, computed, inject, signal, viewChild } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeroComponent } from './sections/hero/hero.component';
@@ -39,7 +40,10 @@ export class AppComponent {
 
   private readonly cursorGlow = viewChild<ElementRef<HTMLElement>>('cursorGlow');
 
+  private readonly platformId = inject(PLATFORM_ID);
+
   private glowEnabled =
+    isPlatformBrowser(this.platformId) &&
     window.matchMedia('(pointer: fine)').matches &&
     !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
