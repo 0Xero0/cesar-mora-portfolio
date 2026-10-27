@@ -17,6 +17,16 @@ export class ContactComponent {
 
   private copyTimer: ReturnType<typeof setTimeout> | undefined;
 
+  protected whatsappNumber(): string {
+    const phone = this.cv.profile().phone ?? '';
+    return phone.replace(/[^0-9]/g, '');
+  }
+
+  protected whatsappMessage(): string {
+    const message = `Hola César, me gustaría hablar contigo sobre un proyecto.`;
+    return encodeURIComponent(message);
+  }
+
   async copy(value: string | undefined): Promise<void> {
     if (!value) {
       return;

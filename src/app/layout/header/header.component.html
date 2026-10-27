@@ -4,13 +4,20 @@
       {{ cv.displayName() }}
     </button>
 
-    <nav id="primary-nav" class="header__nav" [class.is-open]="menuOpen()">
+    <nav
+      #nav
+      id="primary-nav"
+      class="header__nav"
+      [class.is-open]="menuOpen()"
+      [attr.aria-hidden]="!menuOpen()"
+      role="navigation"
+    >
       @for (item of navItems; track item.id) {
         <button
           type="button"
           class="header__link"
           [class.is-active]="activeSection() === item.id"
-          (click)="scrollTo(item.id)"
+          (click)="$event.stopPropagation(); scrollTo(item.id)"
         >
           {{ item.label }}
         </button>
@@ -24,6 +31,7 @@
         (click)="theme.toggle()"
         [class.is-light]="theme.isLight()"
         [attr.aria-label]="theme.isLight() ? 'Activar modo oscuro' : 'Activar modo claro'"
+        rel="me"
       >
         <svg class="header__theme-sun" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
@@ -46,13 +54,14 @@
       </button>
 
       <button
+        #menuToggle
         type="button"
         class="header__toggle"
-        (click)="toggleMenu()"
+        (click)="$event.stopPropagation(); toggleMenu()"
         [class.is-open]="menuOpen()"
         [attr.aria-expanded]="menuOpen()"
         aria-controls="primary-nav"
-        aria-label="Abrir menú de navegación"
+        [attr.aria-label]="menuOpen() ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
       >
         <span></span>
         <span></span>

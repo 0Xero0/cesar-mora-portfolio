@@ -160,8 +160,8 @@
 
 .hero__avatar {
   position: relative;
-  width: 9.5rem;
-  height: 9.5rem;
+  width: clamp(11rem, 22vw, 14rem);
+  height: clamp(11rem, 22vw, 14rem);
   margin: 0 auto 0.5rem;
   border-radius: 50%;
   overflow: hidden;

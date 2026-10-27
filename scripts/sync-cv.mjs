@@ -11,6 +11,7 @@ const yamlPath =
   'C:\\Users\\cesar\\Documents\\Cesar_Mora_CV.yaml';
 
 const pdfSources = [
+  join(projectRoot, 'src', 'assets', 'cv', 'Cesar_Mora_CV.pdf'),
   join(projectRoot, '..', '..', 'Documents', 'Cesar_Mora_CV.pdf'),
   'C:\\Users\\cesar\\Documents\\Cesar_Mora_CV.pdf',
   'C:\\Users\\cesar\\Documents\\Cesar_Mora_CV_nuevo.pdf',

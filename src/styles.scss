@@ -89,6 +89,24 @@ a {
   outline-offset: 3px;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: #041018;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -220,6 +238,19 @@ a {
 
 .card-glow:hover::before {
   opacity: 1;
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-border: rgba(255, 255, 255, 0.24);
+    --header-border: rgba(255, 255, 255, 0.24);
+  }
+
+  :root[data-theme='light'] {
+    --color-border: rgba(15, 23, 42, 0.32);
+    --header-border: rgba(15, 23, 42, 0.32);
+    --color-text-muted: #1f2937;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -171,12 +171,19 @@
     flex-direction: column;
     gap: 0.35rem;
     padding: 1rem;
-    background: var(--header-bg);
+    background: rgba(10, 14, 19, 0.995);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 22px 44px -18px rgba(0, 0, 0, 0.95);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  :root[data-theme='light'] .header__nav {
+    background: rgba(245, 248, 253, 0.995);
+    box-shadow: 0 22px 44px -18px rgba(15, 23, 42, 0.5);
   }
 
   .header__nav.is-open {
